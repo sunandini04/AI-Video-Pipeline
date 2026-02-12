@@ -166,6 +166,6 @@ This project emphasizes:
 
 **Sunandini Das**
 B.Tech CSE
-AI + Automation Enthusiast
+
 
 
