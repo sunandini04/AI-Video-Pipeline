@@ -6,6 +6,8 @@ An end-to-end automated AI-powered pipeline that converts a **topic input** into
 
 One trigger → One complete video.
 
+Example: https://www.youtube.com/watch?v=GrPyWoCcNi4
+
 ---
 
 ## 🚀 Overview
