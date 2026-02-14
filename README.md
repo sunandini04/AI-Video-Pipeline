@@ -1,12 +1,10 @@
 
 
-# 🎬 AI Video Generation Pipeline
+# 🎬 AI-Powered Multilingual Video Generation Engine
 
-An end-to-end automated AI-powered pipeline that converts a **topic input** into a **YouTube-ready video** using free tools and APIs.
+An end-to-end automated **production-grade AI pipeline** that converts a single topic into a fully YouTube-ready video — complete with voiceover, subtitles, thumbnail, and sync optimization.
 
-One trigger → One complete video.
-
-Example: https://www.youtube.com/watch?v=GrPyWoCcNi4
+One trigger → One complete AI-produced video.
 
 ---
 
@@ -16,34 +14,42 @@ This project builds a fully automated AI video generation system using Python.
 
 Given a topic, the pipeline:
 
-1. Generates an AI script
-2. Converts the script to AI voiceover
-3. Fetches relevant visuals
-4. Merges everything into a final `.mp4` video
-5. Automatically generates subtitles
+1. Generates an AI-optimized script
+2. Cleans narration artifacts automatically
+3. Detects language dynamically
+4. Generates AI voice with safe fallback
+5. Fetches relevant AI-matched visuals
+6. Sync-optimizes video with audio duration
+7. Generates clean subtitles (.srt)
+8. Creates an auto thumbnail
+9. Outputs a production-ready `.mp4`
 
-The entire flow runs with a single command.
+All with a single command.
 
 ---
 
-## 🏗️ Architecture
+## 🏗️ Production Architecture
 
 ```
-User Input (Topic)
+User Topic Input
         ↓
-Script Generation (Gemini / AI API)
+AI Script Generation (Gemini API)
         ↓
-Speech Cleaning (Remove comments, hashtags)
+Script Cleaning Engine
         ↓
-Text-to-Speech (Edge TTS)
+Dynamic Language Detection
         ↓
-Visual Fetching (Pexels API)
+AI Voice Generation (Edge TTS / Fallback)
         ↓
-Video + Audio Merge (MoviePy)
+Visual Fetching Engine (Pexels API)
+        ↓
+Sync-Optimized Video Rendering (MoviePy)
         ↓
 Subtitle Generation (.srt)
         ↓
-Final YouTube-ready Video (.mp4)
+Auto Thumbnail Generator
+        ↓
+Final YouTube-Ready Video (.mp4)
 ```
 
 ---
@@ -51,14 +57,15 @@ Final YouTube-ready Video (.mp4)
 ## 🛠️ Tech Stack
 
 * **Python**
-* **Gemini / AI API** – Script generation
-* **Edge TTS** – AI voiceover
-* **Pexels API** – Stock video visuals
-* **MoviePy** – Video + audio merging
-* **FFmpeg** – Subtitle burning
+* **Gemini API** – Intelligent script generation
+* **Edge TTS** – Multilingual AI voice engine
+* **Pexels API** – Context-aware visual fetching
+* **MoviePy** – Audio-video merging & timing control
+* **FFmpeg** – Subtitle embedding & processing
 * **Requests** – API handling
+* **Lang Detection Logic** – Dynamic voice language switching
 
-All tools used are free-tier compatible.
+All tools are free-tier compatible.
 
 ---
 
@@ -66,13 +73,14 @@ All tools used are free-tier compatible.
 
 ```
 main.py
+language_utils.py
 script_generator.py
 voice_generator.py
 video_generator.py
 visuals_fetcher.py
 script_utils.py
 subtitle_utils.py
-requirements.txt
+thumbnail_generator.py
 README.md
 ```
 
@@ -80,13 +88,9 @@ README.md
 
 ## ⚙️ How to Run
 
-### 1️⃣ Install dependencies
+###  
 
-```
-pip install -r requirements.txt
-```
-
-### 2️⃣ Add API keys
+### 1️⃣ Add API Keys
 
 Create a `.env` file:
 
@@ -95,79 +99,117 @@ PEXELS_API_KEY=your_key_here
 GEMINI_API_KEY=your_key_here
 ```
 
-### 3️⃣ Run the pipeline
+### 2️⃣Run the Engine
 
 ```
 python main.py
 ```
 
-Enter a topic when prompted.
-
-The final video will be generated inside the `output/` folder.
+Enter your topic when prompted.
 
 ---
 
-## 🎥 Output
+## 🎥 Output Structure
 
-For topic:
-`AI in Business`
-
-Generated files:
+All files are generated inside:
 
 ```
-AI_in_Business.mp4
-AI_in_Business.srt
-voice.wav
+output/
+    video.mp4
+    voice.wav
+    video.srt
+    thumbnail.jpg
 ```
 
-The final `.mp4` is YouTube-ready.
+✔ Clean
+✔ Structured
+✔ No clutter
+✔ Production-safe
 
 ---
 
-## 🔥 Key Features
+## 🔥 Core Features
 
-* Fully automated pipeline
-* Cleans AI-generated script before voice generation
-* Dynamic video naming (avoids overwrite)
-* Subtitle generation and embedding
-* One-command execution
+* 🔹 Dynamic multilingual voice detection
+* 🔹 Clean subtitle generation
+* 🔹 Auto thumbnail generation
+* 🔹 Audio-video duration synchronization
+* 🔹 Safe fallback if TTS fails
+* 🔹 Error-handled production flow
+* 🔹 Centralized output management
 
 ---
 
-## 🧠 Technical Decisions
+## 🧠 Engineering Decisions
 
-* Separated speech from script comments to prevent narration errors
-* Used FFmpeg for reliable subtitle burning
-* Ensured audio duration sync with video duration
+* Separated script cleaning from script generation to avoid narration artifacts
+* Centralized output structure to prevent naming conflicts
+* Implemented sync optimization to avoid audio-video mismatch
+* Added try/except blocks for production-level stability
 * Modular architecture for scalability
 
 ---
 
-## 📈 Future Improvements
+## 🛡️ Error Handling System
 
-* Dynamic scene-level visual switching
-* Background music automation
-* Auto-thumbnail generation
-* Direct YouTube upload via API
-* SEO metadata auto-generation
+The system gracefully handles:
+
+* Voice generation failure
+* API timeout issues
+* Visual fetching errors
+* Audio sync mismatches
+
+Fallback mechanisms ensure video generation continues even if a component fails.
 
 ---
 
-## 📌 Evaluation Focus
+## 🌍 Example Test Topic
 
-This project emphasizes:
+Try:
 
-* End-to-end automation
-* Clean architecture
-* Modular code structure
+```
+AI in Animation
+YouTube: https://www.youtube.com/watch?v=YFhDnkiyZRI
+```
+
+This tests:
+
+* Multilingual compatibility
+* Dynamic script cleaning
+* Sync optimization
+* Thumbnail generation
+* Error-safe voice generation
+
+---
+
+## 📈 Future Enhancements
+
+* Scene-level AI visual segmentation
+* Background music auto-balancing
+* Direct YouTube API upload
+* SEO metadata generation
+* AI-based hook optimization
+
+---
+
+## 📌 Project Focus
+
+This project demonstrates:
+
+* End-to-end AI automation
+* Production-grade error handling
+* Modular scalable architecture
 * Practical AI integration
+* Real-world deployment readiness
 
 ---
 
-## 👩‍💻 Author
+
 
 **Sunandini Das**
 B.Tech CSE
+
+
 
 
 
