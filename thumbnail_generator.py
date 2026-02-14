@@ -42,3 +42,4 @@ def generate_thumbnail(video_path, title_text, output_path):
     image.save(output_path)
 
     return output_path
+
