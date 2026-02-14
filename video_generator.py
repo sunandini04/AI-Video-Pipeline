@@ -1,5 +1,6 @@
 import os
-from moviepy import VideoFileClip, AudioFileClip, concatenate_videoclips
+from moviepy import VideoFileClip, AudioFileClip, vfx
+
 
 def create_video_with_audio(video_path, audio_path, output_path):
 
@@ -8,23 +9,29 @@ def create_video_with_audio(video_path, audio_path, output_path):
     video = VideoFileClip(video_path)
     audio = AudioFileClip(audio_path)
 
-    clips = []
-    total_duration = 0
+    audio_duration = audio.duration
+    video_duration = video.duration
 
-    while total_duration < audio.duration:
-        clips.append(video)
-        total_duration += video.duration
+   
+    if video_duration < audio_duration:
+        video = video.with_effects([vfx.Loop(duration=audio_duration)])
 
-    final_video = concatenate_videoclips(clips)
+   
+    final_video = video.subclipped(0, audio_duration)
 
-    final_video = final_video.subclipped(0, audio.duration)
-
+    
     final_video = final_video.with_audio(audio)
 
+    
     final_video.write_videofile(
         output_path,
         codec="libx264",
         audio_codec="aac"
     )
+
+    
+    video.close()
+    audio.close()
+    final_video.close()
 
     return output_path
