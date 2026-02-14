@@ -43,3 +43,4 @@ def get_voice(language_name):
 
 def get_language_prompt(language_name):
     return f"Write the script in {language_name}."
+
